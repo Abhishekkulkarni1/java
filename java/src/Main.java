@@ -262,10 +262,10 @@ public class Main {
 //        System.out.println(ans);
 
         /* ********************** ARMSTRONG NUMBERS *********************** */
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        boolean ans = isArmStrong(n);
-        System.out.println(ans);
+//        Scanner scanner = new Scanner(System.in);
+//        int n = scanner.nextInt();
+//        boolean ans = isArmStrong(n);
+//        System.out.println(ans);
     }
 
     /* ********************** PRIME NUMBERS *********************** */
@@ -280,22 +280,22 @@ public class Main {
 //    }
 
     /* ********************** ARMSTRONG NUMBERS *********************** */
-    private static boolean isArmStrong(int n) {
-        int og = n;
-        if(n <= 0) return false;
-        int sum = 0;
-        while(n > 0){
-            int rem = n % 10;
-            int cube = rem * rem * rem;
-            sum = sum + cube;
-            n = n/10;
-        }
-        if(sum == og){
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    private static boolean isArmStrong(int n) {
+//        int og = n;
+//        if(n <= 0) return false;
+//        int sum = 0;
+//        while(n > 0){
+//            int rem = n % 10;
+//            int cube = rem * rem * rem;
+//            sum = sum + cube;
+//            n = n/10;
+//        }
+//        if(sum == og){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
 
 }
