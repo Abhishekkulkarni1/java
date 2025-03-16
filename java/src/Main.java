@@ -116,6 +116,7 @@ public class Main {
 //        }while(guess != randomNumber);
 //        scanner.close()
 
+        /* ********************** PATTERNS *********************** */
 //        for(int row=6; row >= 1; row--){
 //            for (int col = 1; col <= row; col++){
 //                System.out.print(col + " ");
@@ -212,7 +213,8 @@ public class Main {
 ////            1 2
 ////            1
 //        }
-//        fibonachi numbers
+
+        /* ********************** FIBONACCI NUMBERS *********************** */
 //        Scanner scanner = new Scanner(System.in);
 //        int fibNum = scanner.nextInt();
 //        int prevNum = 0;
@@ -237,19 +239,63 @@ public class Main {
 //            n = n / 10;
 //        }
 //        System.out.println(count);
-//reverse the number
-        int n = 1982922222;
-        int ans = 0;
-        while(n > 0){
-            int rem = n % 10;
-            n = n/10;
-            if(ans > (Integer.MAX_VALUE - rem) / 10){
-                System.out.println(0);
-            }
-            System.out.println(Integer.MAX_VALUE);
-            ans = ans * 10 + rem;
-            //
-        }
+
+        /* ********************** REVERSE NUMBERS *********************** */
+//        int n = 1982922222;
+//        int ans = 0;
+//        while(n > 0){
+//            int rem = n % 10;
+//            n = n/10;
+//            if(ans > (Integer.MAX_VALUE - rem) / 10){
+//                System.out.println(0);
+//            }
+//            System.out.println(Integer.MAX_VALUE);
+//            ans = ans * 10 + rem;
+//            //
+//        }
+//        System.out.println(ans);
+
+        /* ********************** PRIME NUMBERS *********************** */
+//        Scanner scanner = new Scanner(System.in);
+//        int n = scanner.nextInt();
+//        boolean ans = isPrime(n);
+//        System.out.println(ans);
+
+        /* ********************** ARMSTRONG NUMBERS *********************** */
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        boolean ans = isArmStrong(n);
         System.out.println(ans);
     }
+
+    /* ********************** PRIME NUMBERS *********************** */
+//    private static boolean isPrime(int n) {
+//        if(n <= 1) return false;
+//        int c = 2;
+//        while(c*c <= n){
+//            if(c%n == 0) return false;
+//            c++;
+//        }
+//        return c*c > n;
+//    }
+
+    /* ********************** ARMSTRONG NUMBERS *********************** */
+    private static boolean isArmStrong(int n) {
+        int og = n;
+        if(n <= 0) return false;
+        int sum = 0;
+        while(n > 0){
+            int rem = n % 10;
+            int cube = rem * rem * rem;
+            sum = sum + cube;
+            n = n/10;
+        }
+        if(sum == og){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
