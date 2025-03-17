@@ -61,13 +61,17 @@ public class Arrayy {
 //        System.out.println(Arrays.toString(arr));
 
         /* ********************* SWAP AN ARRAY ********************* */
-        int[] arr = {1, 2, 3, 4, 5, 6};
-        swap(arr);
-        System.out.println(Arrays.toString(arr));
+//        int[] arr = {1, 2, 3, 4, 5, 6};
+//        swap(arr);
+//        System.out.println(Arrays.toString(arr));
 
         /* ********************* LARGEST NUM OF AN ARRAY ********************* */
 //        int[] arr = {1020202, 21212, 310, 41, 51};
 //        System.out.println(isLargest(arr));
+
+        /* ********************* SECOND LARGEST NUM OF AN ARRAY ********************* */
+        int[] arr = {1, 2, 13, 24, 15, 10};
+        System.out.println(isSecondLargest(arr));
     }
     /* ********************* SWAP 2 NUMBERS ********************* */
 //    static void swap(int[] arr,int index1, int index2){
@@ -77,17 +81,17 @@ public class Arrayy {
 //    }
 
     /* ********************* SWAP AN ARRAY ********************* */
-    static void swap(int[] arr){
-        int start = 0;
-        int end = arr.length-1;
-        while(start < end){
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
-        }
-    }
+//    static void swap(int[] arr){
+//        int start = 0;
+//        int end = arr.length-1;
+//        while(start < end){
+//            int temp = arr[start];
+//            arr[start] = arr[end];
+//            arr[end] = temp;
+//            start++;
+//            end--;
+//        }
+//    }
 
     /* ********************* LARGEST NUM OF AN ARRAY ********************* */
 //    static int isLargest(int[] arr){
@@ -99,5 +103,30 @@ public class Arrayy {
 //        };
 //        return max;
 //    }
-    
+
+    /* ********************* SECOND LARGEST NUM OF AN ARRAY ********************* */
+    static int isSecondLargest(int[] arr){
+        int n = arr.length;
+        int max = arr[0];
+        int secLargest = -1;
+//        for(int i = 0; i < n; i++ ){
+//            for (int j = 1; j < arr.length; j++) {
+//                if(arr[j] >= max){
+//                    max = arr[j];
+//                }
+//            };
+//            if(arr[i] != max && arr[i] > secLargest){
+//                secLargest = arr[i];
+//            }
+//        }
+        for (int i = 0; i < n; i++) {
+            if(arr[i] > max){
+                secLargest = max;
+                max = arr[i];
+            } else if (arr[i] < max && arr[i] > secLargest) {
+                secLargest = arr[i];
+            }
+        }
+        return secLargest;
+    }
 }
