@@ -70,9 +70,133 @@ public class Arrayy {
 //        System.out.println(isLargest(arr));
 
         /* ********************* SECOND LARGEST NUM OF AN ARRAY ********************* */
-        int[] arr = {1, 2, 13, 24, 15, 10};
-        System.out.println(isSecondLargest(arr));
+//        int[] arr = {1, 2, 13, 24, 15, 10};
+//        System.out.println(isSecondLargest(arr));
+
+        /* ********************* REMOVE DUPLICATES FROM AN ARRAY ********************* */
+//        int[] arr = {1, 1, 2, 2, 3, 3, 4, 4, 5};
+//        int newSize = removedDuplicate(arr);
+//
+//        for (int i = 0; i < newSize; i++) {
+//            System.out.print(arr[i] + " ");
+//        }
+
+        /* ********************* MOVE ZEROS TO END ********************* */
+//        int[] arr = {1, 0, 2, 0, 3, 0, 4, 0, 0};
+//        moveZeros(arr);
+//        System.out.println(Arrays.toString(arr));
+
+        /* ********************* LEFT ROTATE BY ONE ********************* */
+//        int[] arr = {1, 2, 3, 4, 5};
+//        leftRotateByOne(arr);
+//        System.out.println(Arrays.toString(arr));
+
+        /* ********************* FIND MAX CONSECUTIVES ********************* */
+        int[] arr = {1, 0, 0, 0, 1, 1 ,1, 0, 0};
+        System.out.println(maxConsecutiveOnes(arr));
+
+        /* ********************* RIGHT ROTATE BY N ********************* */
+//        int[] arr = {1, 2, 3, 4, 5};
+//        rightRotateByOne(arr, 11);
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i] + " ");
+//        }
+
+        /* ********************* FIND MISSING NUMBERS ********************* */
+//        int[] arr = {1, 2, 4, 5, 6, 8};
+//        missingNumber(arr);
+//        System.out.println(missingNumber(arr));
     }
+    /* ********************* FIND MISSING NUMBERS ********************* */
+//    static int missingNumber(int[] arr) {
+//        for (int i = 1; i < arr.length; i++) {
+//            int missingNum = 0;
+//            for (int j = 0; j < arr.length - 1; j++) {
+//                if(arr[j] == i){
+//                    missingNum = 1;
+//                    break;
+//                }
+//            }
+//            if(missingNum == 0){
+//                return i;
+//            }
+//        }
+//        return -1;
+//        int n = arr.length;
+//        int totalSum = (n * (n+1))/2;
+//        int sum = 0;
+//        for (int i = 0; i < n-1; i++) {
+//            sum = sum + arr[i];
+//        }
+//        int missingNum = totalSum - sum;
+//        return missingNum;
+//    }
+
+    /* ********************* RIGHT ROTATE BY N ********************* */
+//    static void reverseArr(int[] arr, int start, int end){
+//        while(start < end){
+//            int temp = arr[start];
+//            arr[start] = arr[end];
+//            arr[end] = temp;
+//            start++;
+//            end--;
+//        }
+//    }
+//    static void rightRotateByOne(int[] arr, int k) {
+//        int n = arr.length;
+//        k = k % n;
+//        reverseArr(arr, 0, n - k - 1);
+//        reverseArr(arr, n - k, n -1);
+//        reverseArr(arr, 0, n - 1);
+//    }
+    /* ********************* FIND MAX CONSECUTIVES ********************* */
+    static int maxConsecutiveOnes(int[] arr) {
+        int max = 0;
+        int cnt = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == 1){
+                cnt++;
+                max = Math.max(max, cnt);
+            } else{
+                cnt = 0;
+            }
+        }
+        return max;
+    }
+
+//    static void leftRotateByOne(int[] arr) {
+//        int temp = arr[0];
+//        int n = arr.length;
+//        for(int i = 1; i < n; i++){
+//            arr[i-1] = arr[i];
+//        }
+//        arr[n-1] = temp;
+//    }
+
+    /* ********************* MOVE ZEROS TO END ********************* */
+//    static void moveZeros(int[] arr) {
+//        int i = 0;
+//        for (int j = 0; j < arr.length; j++) {
+//            if(arr[j] != 0){
+//                int temp = arr[i];
+//                arr[i] = arr[j];
+//                arr[j] = temp;
+//                i++;
+//            }
+//        };
+//    }
+
+    /* ********************* REMOVE DUPLICATES FROM AN ARRAY ********************* */
+//    static int removedDuplicate(int[] arr) {
+//        int i = 0;
+//        for (int j = 0; j < arr.length; j++) {
+//            if(arr[i] != arr[j]) {
+//                arr[i+1] = arr[j];
+//                i++;
+//            }
+//        }
+//        return (i+1);
+//    }
     /* ********************* SWAP 2 NUMBERS ********************* */
 //    static void swap(int[] arr,int index1, int index2){
 //        int temp = arr[index1];
@@ -105,10 +229,10 @@ public class Arrayy {
 //    }
 
     /* ********************* SECOND LARGEST NUM OF AN ARRAY ********************* */
-    static int isSecondLargest(int[] arr){
-        int n = arr.length;
-        int max = arr[0];
-        int secLargest = -1;
+//    static int isSecondLargest(int[] arr){
+//        int n = arr.length;
+//        int max = arr[0];
+//        int secLargest = -1;
 //        for(int i = 0; i < n; i++ ){
 //            for (int j = 1; j < arr.length; j++) {
 //                if(arr[j] >= max){
@@ -119,14 +243,13 @@ public class Arrayy {
 //                secLargest = arr[i];
 //            }
 //        }
-        for (int i = 0; i < n; i++) {
-            if(arr[i] > max){
-                secLargest = max;
-                max = arr[i];
-            } else if (arr[i] < max && arr[i] > secLargest) {
-                secLargest = arr[i];
-            }
-        }
-        return secLargest;
+//        for (int i = 0; i < n; i++) {
+//            if(arr[i] > max){
+//                secLargest = max;
+//                max = arr[i];
+//            } else if (arr[i] < max && arr[i] > secLargest) {
+//                secLargest = arr[i];
+//            }
+//        }
+//        return secLargest;
     }
-}
