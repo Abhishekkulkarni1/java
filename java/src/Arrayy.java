@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Arrayy {
     public static void main(String[] args) {
@@ -92,8 +90,10 @@ public class Arrayy {
 //        System.out.println(Arrays.toString(arr));
 
         /* ********************* FIND MAX CONSECUTIVES ********************* */
-        int[] arr = {1, 0, 0, 0, 1, 1 ,1, 0, 0};
-        System.out.println(maxConsecutiveOnes(arr));
+//        int[] arr = {1, 0, 0, 0, 1, 1 ,1, 0, 0};
+//        System.out.println(maxConsecutiveOnes(arr));
+
+
 
         /* ********************* RIGHT ROTATE BY N ********************* */
 //        int[] arr = {1, 2, 3, 4, 5};
@@ -106,7 +106,38 @@ public class Arrayy {
 //        int[] arr = {1, 2, 4, 5, 6, 8};
 //        missingNumber(arr);
 //        System.out.println(missingNumber(arr));
+
+        /* ********************* FIND SINGLE NUMBER ********************* */
+//        int[] arr = {1, 2, 2, 3, 3};
+//        singleNumber(arr);
+//        System.out.println(singleNumber(arr));
+
+        /* ********************* TWO SUM ********************* */
+        int[] arr = {1, 2, 2, 3, 4};
+        twoSum(arr, 5);
+        System.out.println(Arrays.toString(twoSum(arr, 7)));
     }
+    /* ********************* TWO SUM ********************* */
+    static int[] twoSum(int[] arr, int target){
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int diff = target - arr[i];
+            if(map.containsKey(diff)){
+                return new int[] {map.get(diff), i};
+            }
+            map.put(arr[i], i);
+        }
+        throw new IllegalArgumentException("No solution found");
+    }
+    /* ********************* FIND SINGLE NUMBER ********************* */
+//    static int singleNumber(int[] arr) {
+//        int xor = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            xor = xor ^ arr[i];
+//        }
+//        return xor;
+//    }
+    
     /* ********************* FIND MISSING NUMBERS ********************* */
 //    static int missingNumber(int[] arr) {
 //        for (int i = 1; i < arr.length; i++) {
@@ -150,19 +181,19 @@ public class Arrayy {
 //        reverseArr(arr, 0, n - 1);
 //    }
     /* ********************* FIND MAX CONSECUTIVES ********************* */
-    static int maxConsecutiveOnes(int[] arr) {
-        int max = 0;
-        int cnt = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == 1){
-                cnt++;
-                max = Math.max(max, cnt);
-            } else{
-                cnt = 0;
-            }
-        }
-        return max;
-    }
+//    static int maxConsecutiveOnes(int[] arr) {
+//        int max = 0;
+//        int cnt = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if(arr[i] == 1){
+//                cnt++;
+//                max = Math.max(max, cnt);
+//            } else{
+//                cnt = 0;
+//            }
+//        }
+//        return max;
+//    }
 
 //    static void leftRotateByOne(int[] arr) {
 //        int temp = arr[0];
