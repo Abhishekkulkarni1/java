@@ -113,22 +113,84 @@ public class Arrayy {
 //        System.out.println(singleNumber(arr));
 
         /* ********************* TWO SUM ********************* */
-        int[] arr = {1, 2, 2, 3, 4};
-        twoSum(arr, 5);
-        System.out.println(Arrays.toString(twoSum(arr, 7)));
+//        int[] arr = {1, 2, 2, 3, 4};
+//        twoSum(arr, 5);
+//        System.out.println(Arrays.toString(twoSum(arr, 7)));
+
+        /* ********************* SORT ARRAYS OF 0,1,2 ********************* */
+//        int[] arr = {1, 1, 1, 0, 0, 2, 2, 2, 1, 1, 0};
+//        sortArr(arr);
+//        System.out.println(Arrays.toString(arr));
+
+        /* ********************* MAX OF AN SUBARRAY ********************* */
+//        int[] arr = {5,4,3,1,6};
+//        System.out.println(maxArr(arr));
+
+        /* ********************* MAX OF AN SUBARRAY ********************* */
+        int[] arr = {7, 5, 4, 6, 7,1, 5};
+        System.out.println(maxProfit(arr));
     }
-    /* ********************* TWO SUM ********************* */
-    static int[] twoSum(int[] arr, int target){
-        Map<Integer, Integer> map = new HashMap<>();
+    /* ********************* MAX PROFIT ********************* */
+    public static int maxProfit(int[] arr){
+        int maxProfit = 0;
+        int minPrice = arr[0];
         for (int i = 0; i < arr.length; i++) {
-            int diff = target - arr[i];
-            if(map.containsKey(diff)){
-                return new int[] {map.get(diff), i};
-            }
-            map.put(arr[i], i);
+            minPrice = Math.min(minPrice, arr[i]);
+            maxProfit = Math.max(maxProfit, arr[i] - minPrice);
         }
-        throw new IllegalArgumentException("No solution found");
+        return maxProfit;
     }
+
+    /* ********************* MAX OF AN SUBARRAY ********************* */
+//    public static int maxArr(int[] arr){
+//        int sum = 0; int max =Integer.MIN_VALUE;
+//        for(int i = 0; i < arr.length; i++){
+//            sum = sum + arr[i];
+//            if(sum > max) max = sum;
+//            if(sum < 0) sum = 0;
+//        }
+//        return max;
+//    }
+
+    /* ********************* SORT ARRAYS OF 0,1,2 ********************* */
+//    public static void swap(int[] arr, int start, int end){
+//        while(start < end){
+//            int temp = arr[start];
+//            arr[start] = arr[end];
+//            arr[end] = temp;
+//            start++;
+//            end--;
+//        }
+//    };
+//    public static void sortArr(int[] arr){
+//        int low = 0; int mid = 0; int high = arr.length - 1;
+//        while(mid <= high){
+//            if(arr[mid] == 0){
+//                swap(arr, low, mid);
+//                low++;
+//                mid++;
+//            } else if(arr[mid] == 1){
+//                mid++;
+//            } else{
+//                swap(arr, mid, high);
+//                high--;
+//            }
+//        }
+//    }
+
+    /* ********************* TWO SUM ********************* */
+//    static int[] twoSum(int[] arr, int target){
+//        Map<Integer, Integer> map = new HashMap<>();
+//        for (int i = 0; i < arr.length; i++) {
+//            int diff = target - arr[i];
+//            if(map.containsKey(diff)){
+//                return new int[] {map.get(diff), i};
+//            }
+//            map.put(arr[i], i);
+//        }
+//        throw new IllegalArgumentException("No solution found");
+//    }
+
     /* ********************* FIND SINGLE NUMBER ********************* */
 //    static int singleNumber(int[] arr) {
 //        int xor = 0;
