@@ -127,19 +127,87 @@ public class Arrayy {
 //        System.out.println(maxArr(arr));
 
         /* ********************* MAX OF AN SUBARRAY ********************* */
-        int[] arr = {7, 5, 4, 6, 7,1, 5};
-        System.out.println(maxProfit(arr));
+//        int[] arr = {7, 5, 4, 6, 7,1, 5};
+//        System.out.println(maxProfit(arr));
+
+//        /* ********************* REARRANGE AN ARRAY ********************* */
+//        int[] arr = {7, -5, -4, 6, -7, 1};
+//        int[] rearranged = rearrangeArr(arr);
+//        System.out.println(Arrays.toString(rearranged));
+
+        /* ********************* NEXT PERMUTATION ********************* */
+        int[] arr = {1,2,3};
+        nextPermutation(arr);
+        System.out.println(Arrays.toString(arr));
     }
-    /* ********************* MAX PROFIT ********************* */
-    public static int maxProfit(int[] arr){
-        int maxProfit = 0;
-        int minPrice = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            minPrice = Math.min(minPrice, arr[i]);
-            maxProfit = Math.max(maxProfit, arr[i] - minPrice);
+    /* ********************* NEXT PERMUTATION ********************* */
+    public static void nextPermutation(int[] arr) {
+        int n = arr.length;
+        int ind = -1;
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] < arr[i + 1]) {
+                ind = i;
+                break;
+            }
         }
-        return maxProfit;
+        if (ind == -1) {
+            reverse(arr, 0, n - 1);
+            return;
+        }
+        for (int i = n - 1; i > ind; i--) {
+            if (arr[i] > arr[ind]) {
+                swap(arr, i, ind);
+                break;
+            }
+        }
+        reverse(arr, ind + 1, n - 1);
     }
+
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public static void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            swap(nums, start, end);
+            start++;
+            end--;
+        }
+    }
+
+    /* ********************* REARRANGE AN ARRAY ********************* */
+//    public static int[] rearrangeArr(int[] arr){
+//        int n = arr.length;
+//        int[] ans = new int [n];
+//        int posIndex = 0; int negIndex = 1;
+//        for (int num : arr) {
+//            if (num >= 0) {
+//                if (posIndex < n) {
+//                    ans[posIndex] = num;
+//                    posIndex += 2;
+//                }
+//            } else {
+//                if (negIndex < n) {
+//                    ans[negIndex] = num;
+//                    negIndex += 2;
+//                }
+//            }
+//        }
+//        return ans;
+//    }
+
+    /* ********************* MAX PROFIT ********************* */
+//    public static int maxProfit(int[] arr){
+//        int maxProfit = 0;
+//        int minPrice = arr[0];
+//        for (int i = 0; i < arr.length; i++) {
+//            minPrice = Math.min(minPrice, arr[i]);
+//            maxProfit = Math.max(maxProfit, arr[i] - minPrice);
+//        }
+//        return maxProfit;
+//    }
 
     /* ********************* MAX OF AN SUBARRAY ********************* */
 //    public static int maxArr(int[] arr){
