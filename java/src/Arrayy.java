@@ -136,46 +136,69 @@ public class Arrayy {
 //        System.out.println(Arrays.toString(rearranged));
 
         /* ********************* NEXT PERMUTATION ********************* */
-        int[] arr = {1,2,3};
-        nextPermutation(arr);
-        System.out.println(Arrays.toString(arr));
+//        int[] arr = {1,2,3};
+//        nextPermutation(arr);
+//        System.out.println(Arrays.toString(arr));
+
+        /* ********************* LEADERS IN AN ARRAY ********************* */
+        int[] arr = {1,2,20, 2, 100, 5};
+        ArrayList<Integer> result = leaders(arr);
+        System.out.println(result);
     }
-    /* ********************* NEXT PERMUTATION ********************* */
-    public static void nextPermutation(int[] arr) {
+    /* ********************* LEADERS IN AN ARRAY ********************* */
+    public static ArrayList<Integer> leaders(int arr[]) {
+        // code here
         int n = arr.length;
-        int ind = -1;
-        for (int i = n - 2; i >= 0; i--) {
-            if (arr[i] < arr[i + 1]) {
-                ind = i;
-                break;
+        ArrayList<Integer> ans = new ArrayList<>();
+        int max = arr[n-1];
+        ans.add(arr[n-1]);
+
+        for(int i= n-2; i>=0; i--){
+            if(arr[i] >= max){
+                ans.add(arr[i]);
+                max = arr[i];
             }
         }
-        if (ind == -1) {
-            reverse(arr, 0, n - 1);
-            return;
-        }
-        for (int i = n - 1; i > ind; i--) {
-            if (arr[i] > arr[ind]) {
-                swap(arr, i, ind);
-                break;
-            }
-        }
-        reverse(arr, ind + 1, n - 1);
+        Collections.reverse(ans);
+        return ans;
     }
 
-    public static void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-
-    public static void reverse(int[] nums, int start, int end) {
-        while (start < end) {
-            swap(nums, start, end);
-            start++;
-            end--;
-        }
-    }
+    /* ********************* NEXT PERMUTATION ********************* */
+//    public static void nextPermutation(int[] arr) {
+//        int n = arr.length;
+//        int ind = -1;
+//        for (int i = n - 2; i >= 0; i--) {
+//            if (arr[i] < arr[i + 1]) {
+//                ind = i;
+//                break;
+//            }
+//        }
+//        if (ind == -1) {
+//            reverse(arr, 0, n - 1);
+//            return;
+//        }
+//        for (int i = n - 1; i > ind; i--) {
+//            if (arr[i] > arr[ind]) {
+//                swap(arr, i, ind);
+//                break;
+//            }
+//        }
+//        reverse(arr, ind + 1, n - 1);
+//    }
+//
+//    public static void swap(int[] nums, int i, int j) {
+//        int temp = nums[i];
+//        nums[i] = nums[j];
+//        nums[j] = temp;
+//    }
+//
+//    public static void reverse(int[] nums, int start, int end) {
+//        while (start < end) {
+//            swap(nums, start, end);
+//            start++;
+//            end--;
+//        }
+//    }
 
     /* ********************* REARRANGE AN ARRAY ********************* */
 //    public static int[] rearrangeArr(int[] arr){
