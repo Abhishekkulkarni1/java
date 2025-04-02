@@ -141,27 +141,55 @@ public class Arrayy {
 //        System.out.println(Arrays.toString(arr));
 
         /* ********************* LEADERS IN AN ARRAY ********************* */
-        int[] arr = {1,2,20, 2, 100, 5};
-        ArrayList<Integer> result = leaders(arr);
-        System.out.println(result);
-    }
-    /* ********************* LEADERS IN AN ARRAY ********************* */
-    public static ArrayList<Integer> leaders(int arr[]) {
-        // code here
-        int n = arr.length;
-        ArrayList<Integer> ans = new ArrayList<>();
-        int max = arr[n-1];
-        ans.add(arr[n-1]);
+//        int[] arr = {1,2,20, 2, 100, 5};
+//        ArrayList<Integer> result = leaders(arr);
+//        System.out.println(result);
 
-        for(int i= n-2; i>=0; i--){
-            if(arr[i] >= max){
-                ans.add(arr[i]);
-                max = arr[i];
+        /* ********************* LONGEST CONSECUTIVE ARRAY ********************* */
+        int[] arr = {1,2,20, 2, 100, 5, 6, 8, 9, 10, 11, 12};
+        int result = longestConsecutive(arr);
+        System.out.println(result);
+
+    }
+
+    private static int longestConsecutive(int[] arr) {
+        int longest = 1;
+        int n = arr.length;
+        Set<Integer> set = new HashSet<>();
+        for(int i = 0; i < n; i++){
+            set.add(arr[i]);
+        }
+        for(int it : set){
+            if(!set.contains(it - 1)){
+                int x = it;
+                int cnt = 1;
+                while(set.contains(x+1)){
+                    x = x + 1;
+                    cnt = cnt + 1;
+                }
+                longest = Math.max(longest, cnt);
             }
         }
-        Collections.reverse(ans);
-        return ans;
+
+        return longest;
     }
+    /* ********************* LEADERS IN AN ARRAY ********************* */
+//    public static ArrayList<Integer> leaders(int arr[]) {
+//        // code here
+//        int n = arr.length;
+//        ArrayList<Integer> ans = new ArrayList<>();
+//        int max = arr[n-1];
+//        ans.add(arr[n-1]);
+//
+//        for(int i= n-2; i>=0; i--){
+//            if(arr[i] >= max){
+//                ans.add(arr[i]);
+//                max = arr[i];
+//            }
+//        }
+//        Collections.reverse(ans);
+//        return ans;
+//    }
 
     /* ********************* NEXT PERMUTATION ********************* */
 //    public static void nextPermutation(int[] arr) {
