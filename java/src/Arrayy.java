@@ -146,33 +146,121 @@ public class Arrayy {
 //        System.out.println(result);
 
         /* ********************* LONGEST CONSECUTIVE ARRAY ********************* */
-        int[] arr = {1,2,20, 2, 100, 5, 6, 8, 9, 10, 11, 12};
-        int result = longestConsecutive(arr);
-        System.out.println(result);
+//        int[] arr = {1,2,20, 2, 100, 5, 6, 8, 9, 10, 11, 12};
+//        int result = longestConsecutive(arr);
+//        System.out.println(result);
 
-    }
+        /* ********************* SET ZEROS IN AN MATRIX ********************* */
+//        int [][] arr = new int[][] {
+//                {1,1,1},
+//                {1,0,1},
+//                {1,1,1}
+//        };
+//        setZeros(arr);
+//        System.out.println(Arrays.deepToString(arr));
 
-    private static int longestConsecutive(int[] arr) {
-        int longest = 1;
-        int n = arr.length;
-        Set<Integer> set = new HashSet<>();
-        for(int i = 0; i < n; i++){
-            set.add(arr[i]);
-        }
-        for(int it : set){
-            if(!set.contains(it - 1)){
-                int x = it;
-                int cnt = 1;
-                while(set.contains(x+1)){
-                    x = x + 1;
-                    cnt = cnt + 1;
-                }
-                longest = Math.max(longest, cnt);
+        /* ********************* ROTATE AN MATRIX BY 90 DEG ********************* */
+        int [][] arr = new int[][] {
+                {1,2,3},
+                {4,5,6},
+                {7,98,9}
+        };
+        rotateArr(arr);
+        System.out.println(Arrays.deepToString(arr));
+
+        int size = 4;
+        int[][] largeArr = new int[size][size];
+        int value = 1;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                largeArr[i][j] = value++;
             }
         }
-
-        return longest;
     }
+    /* ********************* ROTATE AN MATRIX BY 90 DEG ********************* */
+    private static void rotateArr(int[][] arr){
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = i+1; j < n; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+        for(int i = 0; i < n; i++){
+            int start = 0;
+            int end = n - 1;
+            while(start < end){
+                int temp = arr[i][start];
+                arr[i][start] = arr[i][end];
+                arr[i][end] = temp;
+                start++;
+                end--;
+            }
+        }
+    }
+    /* ********************* SET ZEROS IN AN MATRIX ********************* */
+//    private static void setZeros(int [][] arr){
+//        int n = arr.length;
+//        int m = arr[0].length;
+//        int inCol = 1;
+//
+//        for(int i = 0; i < n; i++){
+//            for(int j = 0; j < m; j++){
+//                if(arr[i][j] == 0){
+//                    arr[i][0] = 0;
+//                    if(j != 0){
+//                        arr[0][j] = 0;
+//                    } else {
+//                        inCol = 0;
+//                    }
+//                }
+//            }
+//        }
+//
+//        for (int i = 1; i < n; i++) {
+//            for (int j = 1; j < m; j++) {
+//                if(arr[0][j] == 0 || arr[i][0] == 0){
+//                    arr[i][j] = 0;
+//                }
+//            }
+//        }
+//
+//        if(arr[0][0] == 0){
+//            for (int j = 0; j < m; j++) {
+//                arr[0][j] = 0;
+//            }
+//        }
+//
+//        if(inCol == 0){
+//            for (int i = 0; i < n; i++) {
+//                arr[i][0] = 0;
+//            }
+//        }
+//    }
+
+    /* ********************* LONGEST CONSECUTIVE ARRAY ********************* */
+//    private static int longestConsecutive(int[] arr) {
+//        int longest = 1;
+//        int n = arr.length;
+//        Set<Integer> set = new HashSet<>();
+//        for(int i = 0; i < n; i++){
+//            set.add(arr[i]);
+//        }
+//        for(int it : set){
+//            if(!set.contains(it - 1)){
+//                int x = it;
+//                int cnt = 1;
+//                while(set.contains(x+1)){
+//                    x = x + 1;
+//                    cnt = cnt + 1;
+//                }
+//                longest = Math.max(longest, cnt);
+//            }
+//        }
+//
+//        return longest;
+//    }
     /* ********************* LEADERS IN AN ARRAY ********************* */
 //    public static ArrayList<Integer> leaders(int arr[]) {
 //        // code here
