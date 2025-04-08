@@ -160,45 +160,68 @@ public class Arrayy {
 //        System.out.println(Arrays.deepToString(arr));
 
         /* ********************* ROTATE AN MATRIX BY 90 DEG ********************* */
-        int [][] arr = new int[][] {
-                {1,2,3},
-                {4,5,6},
-                {7,98,9}
-        };
-        rotateArr(arr);
-        System.out.println(Arrays.deepToString(arr));
+//        int [][] arr = new int[][] {
+//                {1,2,3},
+//                {4,5,6},
+//                {7,98,9}
+//        };
+//        rotateArr(arr);
+//        System.out.println(Arrays.deepToString(arr));
+//
+//        int size = 4;
+//        int[][] largeArr = new int[size][size];
+//        int value = 1;
+//        for (int i = 0; i < size; i++) {
+//            for (int j = 0; j < size; j++) {
+//                largeArr[i][j] = value++;
+//            }
+//        }
 
-        int size = 4;
-        int[][] largeArr = new int[size][size];
-        int value = 1;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                largeArr[i][j] = value++;
-            }
-        }
+        /* ********************* FIND MAX PRODUCT OF AN SUBARRAY ********************* */
+        int[] arr = {2,3,-2,4};
+        System.out.println(productMax(arr));
     }
-    /* ********************* ROTATE AN MATRIX BY 90 DEG ********************* */
-    private static void rotateArr(int[][] arr){
+
+    /* ********************* FIND MAX PRODUCT OF AN SUBARRAY ********************* */
+    private static int productMax(int[] arr){
+        int max = Integer.MIN_VALUE;
+        int preffix = 1;
+        int suffix = 1;
         int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            for (int j = i+1; j < n; j++) {
-                int temp = arr[i][j];
-                arr[i][j] = arr[j][i];
-                arr[j][i] = temp;
-            }
+
+        for (int i = 0; i < n; i++) {
+            if(preffix == 0) preffix = 1;
+            if(suffix == 0) suffix = 1;
+            preffix = preffix * arr[i];
+            suffix = suffix * arr[n - i - 1];
+            max = Math.max(max, Math.max(preffix, suffix));
         }
-        for(int i = 0; i < n; i++){
-            int start = 0;
-            int end = n - 1;
-            while(start < end){
-                int temp = arr[i][start];
-                arr[i][start] = arr[i][end];
-                arr[i][end] = temp;
-                start++;
-                end--;
-            }
-        }
+        return max;
     }
+
+    /* ********************* ROTATE AN MATRIX BY 90 DEG ********************* */
+//    private static void rotateArr(int[][] arr){
+//        int n = arr.length;
+//        for (int i = 0; i < n-1; i++) {
+//            for (int j = i+1; j < n; j++) {
+//                int temp = arr[i][j];
+//                arr[i][j] = arr[j][i];
+//                arr[j][i] = temp;
+//            }
+//        }
+//        for(int i = 0; i < n; i++){
+//            int start = 0;
+//            int end = n - 1;
+//            while(start < end){
+//                int temp = arr[i][start];
+//                arr[i][start] = arr[i][end];
+//                arr[i][end] = temp;
+//                start++;
+//                end--;
+//            }
+//        }
+//    }
+
     /* ********************* SET ZEROS IN AN MATRIX ********************* */
 //    private static void setZeros(int [][] arr){
 //        int n = arr.length;
